@@ -53,8 +53,8 @@ public class UserController {
         return "editTable";
     }
     @PostMapping("/edit/{id}")
-    public String update(User user) {
-        userServices.save(user);
+    public String update(@ModelAttribute("user") User user, @PathVariable("id") int id) {
+        userServices.update(id, user);
         return "redirect:/users";
     }
 

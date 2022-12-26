@@ -7,7 +7,7 @@ import project.springboot.dao.UserDao;
 import project.springboot.model.User;
 
 import java.util.List;
-import java.util.Optional;
+
 @Service
 public class UserServicesImp implements UserServices {
     private final UserDao userDao;
@@ -18,21 +18,25 @@ public class UserServicesImp implements UserServices {
 
     @Override
     public List<User> listUsers() {
-        return userDao.findAll();
+        return userDao.listUsers();
     }
-
     @Override
     @Transactional
-    public User save(User user) {
-        return userDao.save(user);
+    public void update(int id, User user){
+        userDao.update(id,user);
+    }
+    @Override
+    @Transactional
+    public void save(User user) {
+    userDao.save(user);
     }
     @Override
     public User show(int id){
-      return userDao.getOne(id);
+      return userDao.show(id);
     }
     @Override
     @Transactional
     public void delete(int id) {
-    userDao.deleteById(id);
+    userDao.delete(id);
     }
 }
