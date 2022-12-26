@@ -2,6 +2,7 @@ package project.springboot.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import project.springboot.dao.UserDao;
 import project.springboot.model.User;
 
@@ -20,16 +21,17 @@ public class UserServicesImp implements UserServices {
         return userDao.findAll();
     }
 
-
     @Override
+    @Transactional
     public User save(User user) {
         return userDao.save(user);
     }
-
+    @Override
     public User show(int id){
       return userDao.getOne(id);
     }
     @Override
+    @Transactional
     public void delete(int id) {
     userDao.deleteById(id);
     }

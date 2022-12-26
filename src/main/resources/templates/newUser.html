@@ -6,7 +6,7 @@
 </head>
 <body>
 <form action="#" th:action="@{/users/new}" th:object="${newUser}" method="post">
-  <h2>    <label for="name"> Введите имя:</label>
+  <label for="name"> Введите имя:</label>
     <input type="text" th:field="*{name}" id ="name">
     <br/>
     <label for="lastName"> Введите фамилию:</label>
@@ -16,7 +16,6 @@
     <input type="text" th:field="*{email}" id ="email">
     <br/>
     <input type="submit" value="Создать"/>
-  </h2>
 </form>
 
 </body>
